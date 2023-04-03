@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+
+  mysql-2 :
+    image: mysql:latest
+    container_name: mysql-2
+    restart: always
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=#demo#MySQL
+      - MYSQL_DATABASE=demoMySQL
+    ports:
+      - 3308:3306
+
+networks:
+  default:
+    external:
+      name: global-networks
+
+# docker-compose up -d --scale mysql=2
+# docker rm -f $(docker ps -aq) // is a short command which I use to remove all containers.
+# docker run --name=mysql_demo -e MYSQL_ROOT_PASSWORD=#demo#MySQL -e MYSQL_DATABASE=demoMySQL -p 3306:3306 -d mysql
+# docker network create -d bridge global-networks
+# docker compose -f docker-compose2.yml up
