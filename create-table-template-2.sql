@@ -23,4 +23,3 @@ LEFT JOIN amphures AS amph ON amph.id = dstc.amphure_id
 LEFT JOIN provinces prv ON prv.id = amph.province_id
 LEFT JOIN geographies gogph ON gogph.id = prv.geography_id
 WHERE dstc.id = 302202;
-
